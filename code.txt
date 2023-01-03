@@ -1,0 +1,937 @@
+
+1(a)= (data types)
+
+public class Pract_1a {
+ static boolean v1;
+ static double v2;
+ static float v3;
+ static int v4;
+ static long v5;
+ static String v6;
+ public static void main(String[] args) {
+ System.out.println("\nDefault values of Primitive Data types -> ");
+ System.out.println("\nBoolean Value = " + v1);
+ System.out.println("Double Value = " + v2);
+ System.out.println("Float Value = " + v3);
+ System.out.println("Integer Value = " + v4);
+ System.out.println("Long Value = " + v5);
+ System.out.println("String value = " + v6);
+ }
+}
+
+
+1(b)= (Biker Avg)
+
+import java.util.Scanner;
+public class Pract_1b {
+ public static void main(String args[]) {
+ Float f1,f2,f3,f4,f5;
+ Scanner s = new Scanner(System.in);
+ System.out.println("First Biker's Speed: ");
+ f1=s.nextFloat();
+ System.out.println("Second Biker's Speed: ");
+ f2=s.nextFloat();
+ System.out.println("Third Biker's Speed: ");
+ f3=s.nextFloat();
+ System.out.println("Fourth Biker's Speed: ");
+ f4=s.nextFloat();
+ System.out.println("Fifth Biker's Speed: ");
+ f5=s.nextFloat();
+ Float avg=(f1+f2+f3+f4+f5)/5;
+ System.out.println("Average of all bikers : "+avg);
+ if(f1>avg) {
+ System.out.println("First Biker Qualified with the speed: "+f1);
+ }
+ if(f2>avg) {
+ System.out.println("Second Biker Qualified with the speed: "+f2);
+ }
+ if(f3>avg) {
+ System.out.println("Third Biker Qualified with the speed: "+f3);
+ }
+ if(f4>avg) {
+ System.out.println("Fourth Biker Qualified with the speed: "+f4);
+ }
+ if(f5>avg) {
+ System.out.println("Fifth Biker Qualified with the speed: "+f5);
+ }
+ }
+}
+
+=============================================================================
+
+2(a)= (Binary Search)
+
+import java.util.Scanner;
+class BinarySearch{
+ int binarySearch(int arr[],int n,int target){
+ int low = 0;
+ int high = n-1;
+ while(low <= high){
+ int mid = low + (high-low)/2;
+ if(arr[mid] == target)
+ return mid;
+ else if(arr[mid] < target)
+ low = mid+1;
+ else
+ high = mid-1;
+ }
+ return -1;
+ }
+ public static void main(String args[])
+ {
+ BinarySearch ob = new BinarySearch();
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter size of array : ");
+ int n = sc.nextInt();
+ int arr[] = new int [n];
+ System.out.println("Enter numbers : ");
+ for(int i =0;i<n;i++){
+ arr[i] = sc.nextInt();
+ }
+ System.out.println("Enter element to be search : ");
+ int target = sc.nextInt();
+ int result = ob.binarySearch(arr,n,target);
+ if(result != -1){
+ System.out.println(target + " is found at index -> "+result);
+ }
+ else{
+ System.out.println("Object not found !");
+ }
+ }
+}
+
+
+2(b)= (Bubble Sort)
+
+import java.util.Scanner;
+public class Pract_2b{
+ static void BubbleSort(int [] arr) {
+ int n =arr.length;
+ int temp=0;
+ for(int i=0; i<n; i++) {
+ for(int j=1; j<(n-i); j++) {
+ if(arr[j-1] > arr[j]) {
+ // Swap Elements
+ temp = arr[j-1];
+ arr[j-1] = arr[j];
+ arr[j] = temp;
+ }
+ }
+ }
+ }
+ public static void main(String[] args) {
+ Pract_2b ob = new Pract_2b();
+ int arr[] = new int[5];
+ System.out.println("Please enter 5 Numbers");
+ Scanner a = new Scanner(System.in);
+ for(int i=0; i<5; i++) {
+ System.out.print("Enter number " + (i+1) + " : ");
+ arr[i] = a.nextInt();
+ }
+ //int arr[] = {5,7,98,52,4,1};
+ System.out.println("\nArray Before Sorting -> ");
+ for(int i=0; i<arr.length; i++) {
+ System.out.println(arr[i] + " ");
+ }
+ System.out.println();
+ BubbleSort(arr);
+ System.out.println("Array after Sorting -> ");
+ for(int i=0; i<arr.length; i++) {
+ System.out.println(arr[i] + "");
+ }
+ }
+}
+
+
+=============================================================================
+
+3(a)= (Create a class, methods and invoke)
+
+import java.util.*;
+import java.io.*;
+class Arithmetic {
+ void add(int x, int y) {
+ System.out.println("Addition is -> ");
+ System.out.println(x + " + " + y + " = " + (x + y));
+ }
+ void sub(int x, int y) {
+ System.out.println("Subtraction is -> ");
+ System.out.println(x + " - " + y + " = " + (x - y));
+ }
+ void mul(int x, int y) {
+ System.out.println("Multiplication is -> ");
+ System.out.println(x + " * " + y + " = " + (x * y));
+ }
+ void div(int x, int y) {
+ System.out.println("Division is -> ");
+ System.out.println(x + " / " + y + " = " + (x / y));
+ }
+ void modulus(int x, int y) {
+ System.out.println("Modulus is -> ");
+ System.out.println(x + " % " + y + " = " + (x % y));
+ }
+ public static void main(String[] args) {
+ int a,b;
+ System.out.println("Enter first number : ");
+ a = new Scanner(System.in).nextInt();
+ System.out.println("Enter second number : ");
+ b = new Scanner(System.in).nextInt();
+ Arithmetic obj = new Arithmetic();
+ obj.add(a,b);
+ obj.sub(a,b);
+ obj.mul(a,b);
+ obj.div(a,b);
+ obj.modulus(a,b);
+ }
+}
+
+
+
+3(b)=  (constructor overloading)
+
+class Student {
+ private int PRN;
+ private String Name;
+ private int Age;
+ Student() {
+//Default constructor
+ PRN = 07;
+ Name = "Rocky";
+ Age = 21;
+ }
+ Student(int n1, String str, int n2) {
+//Parameterized constructor
+ PRN = n1;
+ Name = str;
+ Age = n2;
+ }
+ public int getPRN() {
+ return PRN;
+ }
+ public void setPRN(int PRN) {
+ this.PRN = PRN;
+ }
+ public String getName() {
+ return Name;
+ }
+ public void setName(String Name) {
+ this.Name = Name;
+ }
+ public int getAge() {
+ return Age;
+ }
+ public void setS_Age(int s_Age) {
+ this.Age = Age;
+ }
+ public static void main(String args[]) {
+//This object creation would call the default constructor
+ Student obj1 = new Student();
+ System.out.println("\nStudent Name is: "+obj1.getName());
+ System.out.println("Student Age is: "+obj1.getAge());
+ System.out.println("Student PRN is: "+obj1.getPRN());
+ Student obj2 = new Student(79, "Sunny", 21);
+ System.out.println("\nStudent Name is: "+obj2.getName());
+ System.out.println("Student Age is: "+obj2.getAge());
+ System.out.println("Student PRN is: "+obj2.getPRN());
+ }
+
+
+3(c)= (method overloading)
+
+import java.util.*;
+import java.io.*;
+class Overload {
+ public void area(float a, float b)
+ {
+ System.out.println("Area of rectangle is "+(a*b));
+ }
+ public void area(float a)
+ {
+ System.out.println("Area of square is "+(a*a));
+ }
+ public static void main(String args[]) {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter first side -> ");
+ float x=sc.nextInt();
+ System.out.println("Enter second side -> ");
+ float y=sc.nextInt();
+ Overload obj=new Overload();
+ obj.area(x,y);
+ obj.area(x);
+ }
+} 
+
+
+
+=============================================================================
+
+
+4(a)= (abstract class for shape)
+ 
+import java.util.Scanner;
+abstract class calcArea {
+ abstract void findTriangle(double b, double h);
+ abstract void findRectangle(double l, double b);
+ abstract void findSquare(double s);
+ abstract void findCircle(double r);
+}
+class findArea extends calcArea {
+ void findTriangle(double b, double h)
+ {
+ double area = (b*h)/2;
+ System.out.println("Area of Triangle: "+area);
+ }
+ void findRectangle(double l, double b)
+ {
+ double area = l*b;
+ System.out.println("Area of Rectangle: "+area);
+ }
+ void findSquare(double s)
+ {
+ double area = s*s;
+ System.out.println("Area of Square: "+area);
+ }
+ void findCircle(double r)
+ {
+ double area = 3.14*r*r;
+ System.out.println("Area of Circle: "+area);
+ }
+}
+class area {
+ public static void main(String args[])
+ {
+ double l, b, h, r, s;
+ findArea area = new findArea();
+ Scanner get = new Scanner(System.in);
+ System.out.print("\nEnter Base & Vertical Height of Triangle: ");
+ b = get.nextDouble();
+ h = get.nextDouble();
+ area.findTriangle(b, h);
+ System.out.print("\nEnter Length & Breadth of Rectangle: ");
+ l = get.nextDouble();
+ b = get.nextDouble();
+ area.findRectangle(l, b);
+ System.out.print("\nEnter Side of a Square: ");
+ s = get.nextDouble();
+ area.findSquare(s);
+ System.out.print("\nEnter Radius of Circle: ");
+ r = get.nextDouble();
+ area.findCircle(r);
+ }
+}
+
+
+4(b)= (“super” keywords)
+
+class Animal{
+ String color="\nwhite";
+}
+class Dog extends Animal{
+ String color="\nblack";
+ void printColor(){
+ System.out.println(color);//prints color of Dog class
+ System.out.println(super.color);//prints color of Animal class
+ }
+}
+class Super{
+ public static void main(String args[]){
+ Dog d=new Dog();
+ d.printColor();
+ }
+}
+
+
+4(c)= (implement Interface)
+
+interface ParentInterface
+{
+ public void speak();
+}
+class ChildClass implements ParentInterface
+{
+ public void speak()
+ {
+ System.out.println("\nHello I am Child implementing ParentInterface !!!");
+ }
+}
+public class Pract_4c {
+ public static void main(String args[])
+ {
+ ParentInterface c=new ChildClass();
+ c.speak();
+ }
+}
+
+
+4(d)= (Multiple inheritance using interfaces)
+
+import java.util.Scanner;
+interface RectangleArea
+{
+ public void recarea(float b,float h);
+}
+interface TriangleArea
+{
+ public void triarea(float b,float h);
+}
+class FindArea implements RectangleArea,TriangleArea{
+ public void triarea(float b,float h)
+ {
+ System.out.println("Area of Triangle is -> "+(float)((h*b)/2));
+ }
+ public void recarea(float b,float h)
+ {
+ System.out.println("Area of Rectangle is -> "+(b*h));
+ }
+}
+public class Pract_4d {
+ public static void main(String args[])
+ {
+ float b,h;
+ Scanner s=new Scanner(System.in);
+ RectangleArea r=new FindArea();
+ TriangleArea t=new FindArea();
+ System.out.print("\nEnter first Sides of Rectangle : ");
+ b=s.nextFloat();
+ System.out.print("Enter second Side of Rectangle : ");
+ h=s.nextFloat();
+ r.recarea(b, h);
+ System.out.print("\nEnter the Base of Triangle : ");
+ b=s.nextFloat();
+ System.out.print("Enter the Height of Triangle : ");
+ h=s.nextFloat();
+ t.triarea(b, h);
+ }
+}
+
+
+
+=============================================================================
+
+
+5(a)= (particular character command line)
+
+import java.io.*;
+class Pract_5a
+{
+ public static void main (String args[]) //defining main method
+ {
+ try
+ {
+ FileInputStream fis=new FileInputStream("sample.txt");
+ //reading from file
+ BufferedInputStream bis=new BufferedInputStream(fis);
+ int i;
+ int occur=0;
+ while((i=bis.read())!=-1)
+ {
+ char a=(char)i;
+ if(i==args[0].charAt(0))
+ {
+ occur++;
+ }
+ }
+ System.out.println("\nThe letter "+ args[0].charAt(0)+" occurs "+occur+" 
+times in the file !!!\n");
+ } catch(Exception ex)
+ {
+ System.out.println(ex.getMessage());
+ }
+ }
+}
+
+
+5(b)= (palindrome or not)
+
+import java.util.*;
+class Pract_5b
+{
+ public static void main(String args[])
+ {
+ String str, reverse = "";
+ Scanner obj = new Scanner(System.in);
+ System.out.println("\nEnter a string/number to check if it is a palindrome : ");
+ str = obj.nextLine();
+ int length = str.length();
+ for ( int i = length - 1; i >= 0; i-- )
+ reverse = reverse + str.charAt(i);
+ if (str.equals(reverse))
+ System.out.println(str+" is a palindrome.\n");
+ else
+ System.out.println(str+" is not a palindrome.\n");
+ }
+}
+
+
+
+=============================================================================
+
+
+6(a)= (“Welcome” every 3 seconds)
+
+class A extends Thread
+{
+ public void run()
+ {
+ try
+ {
+ for(int i=1;i<=7;i++)
+ {
+ sleep(1000);
+ System.out.println("good morning");
+ }
+ }
+ catch(Exception e)
+ {
+ System.out.println(e);
+ }
+ }
+}
+class B extends Thread
+{
+ public void run()
+{
+ try
+ 
+{
+ for(int j=1;j<=7;j++)
+ 
+{
+ sleep(2000);
+ System.out.println("hello");
+ 
+}
+ 
+}
+ catch(Exception e)
+ 
+{
+ System.out.println(e);
+ 
+}
+ 
+}
+}
+class C extends Thread {
+ public void run()
+ 
+{
+ try
+ 
+{
+ for(int k=1;k<=7;k++)
+ 
+{
+ sleep(3000);
+ System.out.println("welcome");
+ 
+}
+ 
+}
+ catch(Exception e)
+ 
+{
+ System.out.println(e);
+ 
+}
+ 
+}
+}
+class Threads {
+ public static void main(String args[])
+ 
+{
+ A a1=new A();
+ B b1=new B();
+ C c1=new C();
+ a1.start();
+ b1.start();
+ c1.start();
+ 
+}
+}
+
+
+6(b)= (“Welcome” every 3 seconds by implementing Runnable)
+
+class X implements Runnable
+{
+ public void run()
+ {
+ try
+ {
+ for(int i=1;i<=7;i++)
+ {
+ Thread.sleep(1000);
+ System.out.println("good morning");
+ }
+ }
+ catch(Exception e)
+ {
+ System.out.println(e);
+ }
+ }
+}
+class Y implements Runnable
+{
+ public void run()
+ {
+ try
+ {
+ for(int j=1;j<=7;j++)
+ {
+ Thread.sleep(2000);
+ System.out.println("hello");
+ }
+ }
+ catch(Exception e)
+ {
+ System.out.println(e);
+}
+ 
+}
+}
+class Z implements Runnable {
+ public void run()
+ 
+{
+ try
+ 
+{
+ for(int k=1;k<=7;k++)
+ 
+{
+ Thread.sleep(3000);
+ System.out.println("welcome");
+ 
+}
+ 
+}
+ catch(Exception e)
+ 
+{
+ System.out.println(e);
+ 
+}
+ 
+}
+}
+class runnabledemo {
+ public static void main(String args[]) {
+ X a1 = new X();
+ Y b1 = new Y();
+ Z c1 = new Z();
+ Thread t1 = new Thread(a1);
+ Thread t2 = new Thread(b1);
+ Thread t3 = new Thread(c1);
+ t1.start();
+ t2.start();
+ t3.start();
+ 
+}
+}
+
+
+
+=============================================================================
+
+
+7= (User Defined Exception)
+
+import java.util.Scanner;
+class InvalidAgeException extends Exception{
+ InvalidAgeException(String s){
+ super(s);
+ }
+}
+class Testexception{
+ static void validate(int age)throws InvalidAgeException{
+ if(age<18)
+ throw new InvalidAgeException("Age not valid !!! \n");
+ else
+ System.out.println("Welcome to vote !!! \n");
+ }
+ public static void main(String args[]){
+ System.out.print("Enter your age : ");
+ int age = new Scanner(System.in).nextInt();
+ try{
+ validate(age);
+ }
+ catch(Exception m){
+ System.out.println("Exception occured : "+m);
+ }
+ }
+}
+
+
+=============================================================================
+
+
+10 = (Bank Form)
+
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class New_BankForm extends JFrame implements ActionListener{
+    JLabel l1, l2, l3, l4, l5, l6, l7, l8, l9, l10;  //all labels for textField
+    JTextField tf1, tf2, tf5, tf6, tf7, tf8, tf9;   // others fields
+    JButton btn1, btn2;  //buttons for signup and clear
+    JPasswordField p1, p2;  // password fields
+
+    New_BankForm()
+    {
+        setVisible(true);
+        setSize(700, 700);
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Registration Form in Java");
+        l1 = new JLabel("Bank Form :");
+        l1.setForeground(Color.red);
+        l1.setFont(new Font("Serif", Font.BOLD, 20));
+        l2 = new JLabel("Name:");
+        l3 = new JLabel("Email-ID:");
+        l4 = new JLabel("Create Password:");
+        l5 = new JLabel("Confirm Password:");
+        l6 = new JLabel("Country:");
+        l7 = new JLabel("State:");
+        l8 = new JLabel("Phone No:");
+        l9 = new JLabel("Aadhaar No:");
+        l10 = new JLabel("Address:");
+
+        tf1 = new JTextField();
+        tf2 = new JTextField();
+        p1 = new JPasswordField();
+        p2 = new JPasswordField();
+        tf5 = new JTextField();
+        tf6 = new JTextField();
+        tf7 = new JTextField();
+        tf8 = new JTextField();
+        tf9 = new JTextField();
+
+        btn1 = new JButton("Submit");
+        btn2 = new JButton("Clear");
+        btn1.addActionListener(this);
+        btn2.addActionListener(this);
+
+        l1.setBounds(100, 30, 400, 30);
+        l2.setBounds(80, 70, 200, 30);
+        l3.setBounds(80, 110, 200, 30);
+        l4.setBounds(80, 150, 200, 30);
+        l5.setBounds(80, 190, 200, 30);
+        l6.setBounds(80, 230, 200, 30);
+        l7.setBounds(80, 270, 200, 30);
+        l8.setBounds(80, 310, 200, 30);
+        l9.setBounds(80,350,200,30);
+        l10.setBounds(80,390,200,30);
+        tf1.setBounds(300, 70, 200, 30);
+        tf2.setBounds(300, 110, 200, 30);
+        p1.setBounds(300, 150, 200, 30);
+        p2.setBounds(300, 190, 200, 30);
+        tf5.setBounds(300, 230, 200, 30);
+        tf6.setBounds(300, 270, 200, 30);
+        tf7.setBounds(300, 310, 200, 30);
+        tf8.setBounds(300,350,200,30);
+        tf9.setBounds(300,390,200,30);
+        btn1.setBounds(50, 430, 100, 30);
+        btn2.setBounds(170, 430, 100, 30);
+
+        add(l1);
+        add(l2);
+        add(tf1);
+        add(l3);
+        add(tf2);
+        add(l4);
+        add(p1);
+        add(l5);
+        add(p2);
+        add(l6);
+        add(tf5);
+        add(l7);
+        add(tf6);
+        add(l8);
+        add(tf7);
+        add(l9);
+        add(tf8);
+        add(l10);
+        add(tf9);
+        add(btn1);
+        add(btn2);
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+        if (e.getSource() == btn1)
+        {
+            char[] s3 = p1.getPassword();
+            char[] s4 = p2.getPassword();
+            String s8 = new String(s3);
+            String s9 = new String(s4);
+            if (s8.equals(s9))
+            {
+                try
+                {
+                    JOptionPane.showMessageDialog(btn1, "Data Saved Successfully");
+                }
+                catch (Exception ex)
+                {
+                    System.out.println();
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(btn1, "Password Does Not Match");
+            }
+        }
+        else
+        {
+            tf1.setText("");
+            tf2.setText("");
+            p1.setText("");
+            p2.setText("");
+            tf5.setText("");
+            tf6.setText("");
+            tf7.setText("");
+            tf8.setText("");
+            tf9.setText("");
+        }
+    }
+    public static void main(String[] args)
+    {
+        new Bank_Form();
+    }
+}
+
+
+=============================================================================
+
+12 = (anonymus class)
+
+import java.awt.*;
+import java.awt.event.*;
+class AEvent extends Frame implements ActionListener{
+    TextField tf;
+    AEvent(){
+        tf = new TextField();
+        tf.setBounds(60,50,170,20);
+        Button b = new Button("click me");
+        b.setBounds(100,120,80,30);
+
+        Button b1 = new Button("Submit");
+        b1.setBounds(100,180,80,30);
+
+        b.addActionListener(this);
+        b1.addActionListener(this);
+
+        add(b);
+        add(tf);
+        add(b1);
+
+        setSize(300,300);
+        setTitle("T.Y.Frame");
+        setLayout(null);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e)
+    {
+        if(e.getActionCommand()=="click me")
+        {
+            tf.setText("Welcome");
+        }
+        if (e.getActionCommand()=="Submit")
+        {
+            tf.setText("Welcome back");
+        }
+    }
+
+    public static void main(String[] args) {
+        new AEvent();
+    }
+}
+
+
+============================================================================
+
+11 = (Move Buttons)
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class Move_Buttons extends Frame implements ActionListener
+{
+    Button up = new Button("Up");
+    Button down = new Button ("Down");
+    Button right = new Button ("Right");
+    Button left = new Button ("Left");
+    Button exit = new Button ("Exit");
+
+    int x=200;
+    int y=200;
+
+    Object s;
+
+    Move_Buttons()
+    {
+        setSize(500,500);
+        setTitle("Move Object");
+        setLayout(new FlowLayout());
+        setBackground(Color.pink);
+
+        add(up);
+        add(down);
+        add(right);
+        add(left);
+        add(exit);
+
+        up.addActionListener(this);
+        down.addActionListener(this);
+        right.addActionListener(this);
+        left.addActionListener(this);
+        exit.addActionListener(this);
+
+    }
+
+    public void actionPerformed(ActionEvent ae)
+    {
+        s=ae.getSource();
+        repaint();
+    }
+
+    public void paint(Graphics g)
+    {
+        if(s==up)
+            y=y-20;
+
+        else if(s==down)
+            y=y+20;
+
+        else if(s==right)
+            x=x+20;
+
+        else if(s==left)
+            x=x-20;
+
+        else if(s==exit)
+            System.exit(0);
+        g.drawOval(x,y,150,150);
+        g.fillOval(x+30,y+30,20,20) ;
+        g.fillOval(x+100,y+30,20,20) ;
+        g.drawArc(x+35 ,y+80 ,80 , 40 ,180,180) ;
+        g.drawArc(x+35 ,y+91 ,80 , 20 ,180,180) ;
+        g.fill3DRect(x+70, y+65, 10, 30, getFocusTraversalKeysEnabled());
+    }
+
+    public static void main(String[] args)
+    {
+        Move_Buttons m = new Move_Buttons();
+        m.setVisible(true);
+    }
+}
